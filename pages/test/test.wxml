@@ -1,21 +1,2 @@
-<view class="div1">{{message}}</view>
-<view wx:if="{{condition}}">我是显示的</view>
-<view wx:else>我是不显的</view>
-<view hidden="{{condition}}">我是hidden</view>
-<view wx:for="{{arr}}" wx:for-index="xx" wx:for-item="xxx" wx:key="id">
-  {{xx}}:{{xxx.id}},{{xxx.text}}
-</view>
-----------------------
-<view>{{str}}</view>
-<button bindtap="reverStr">我是一个按钮</button>
-----------------------
-<view wx:for="{{arr123}}" wx:for-index="index" wx:for-item="item" wx:key='item'>
-  {{index}}:{{item}}
-</view>
-<button bindtap="pushNumber">我是一个按钮</button>
-----------------------
-<view>{{obj.text}}</view>
-<button bindtap="changeMesg">我是一个按钮</button>
-----------------------
-<view class="{{state ? 'active' : ''}}">按下按钮我会改变颜色</view>
-<button bindtap="changeColor">我是一个按钮</button>
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>
