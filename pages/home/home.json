@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "m-button":"../../components/button/button"
+    "m-button":"../../components/button/button",
+    "m-clock":"../../components/clock/clock"
   }
 }

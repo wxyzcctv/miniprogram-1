@@ -5,10 +5,10 @@
       <text>所以，我们提出了将关注生活</text>
     </view>
   </scroll-view>
-  <m-button text="创建一个任务" size="mini" type="change"></m-button>
+  <m-button text="创建一个任务" size="mini" type="default"></m-button>
   <view class="tomato-wrapper">
     <navigator class="tomato" url="/pages/tomato/tomato">
-
+      <m-clock text="点击计时"></m-clock>
     </navigator>
   </view>
 </view>
