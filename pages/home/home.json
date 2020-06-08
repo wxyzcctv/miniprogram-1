@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "m-button":"../../components/button/button",
-    "m-clock":"../../components/clock/clock"
+    "m-clock":"../../components/clock/clock",
+    "m-confirm":"../../components/confirm/confirm"
   }
 }
