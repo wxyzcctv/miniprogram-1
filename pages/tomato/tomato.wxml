@@ -1,2 +1,6 @@
-<!--pages/tomato/tomato.wxml-->
-<text>pages/tomato/tomato.wxml</text>
+<view class="cantainer">
+  <view class="clock"><t-clock></t-clock></view>
+  <view class="stop"><t-button size="mini" type="change" text="暂停"></t-button></view>
+  <view class="abandon"><t-button size="mini" text="放弃"></t-button></view>
+  <view class="again"><t-button size="mini" type="change" text="再来一组"></t-button></view>
+</view>
