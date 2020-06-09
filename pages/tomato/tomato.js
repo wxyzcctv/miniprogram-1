@@ -1,66 +1,48 @@
-// pages/tomato/tomato.js
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
+  timer: null,
   data: {
-
+    defalutSecond: 1500,
+    time:"",
+    stop:true
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-
+    this.showTime()
+    this.setTime()
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  setTime(){
+    this.timer = setInterval(() => {
+      this.data.defalutSecond = this.data.defalutSecond - 1
+      this.showTime()
+      if(this.data.defalutSecond === 0){
+        return this.destroyTimer()
+      }
+    }, 1000);
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  destroyTimer(){
+    clearInterval(this.timer)
+    this.timer = null
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  showTime(){
+    let m = Math.floor(this.data.defalutSecond/60)
+      let s = Math.floor(this.data.defalutSecond%60)
+      if((m + '').length === 1){
+        m = '0' + m
+      }
+      if((s + '').length === 1){
+        s = '0' + s
+      }
+      this.setData({ time: `${m}:${s}`})
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  setStop(){
+    this.destroyTimer()
+    this.setData({ stop: false})
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  setStart(){
+    this.setTime()
+    this.setData({ stop: true})
   }
+  
+  
+
 })
