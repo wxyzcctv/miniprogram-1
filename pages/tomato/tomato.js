@@ -2,10 +2,11 @@
 Page({
   timer: null,
   data: {
-    defalutSecond: 1500,
+    defalutSecond: 1,
     time:"",
     stop:true,
-    confirmVisible: false
+    confirmVisible: false,
+    againBottonVisible: false
   },
   onShow: function () {
     this.showTime()
@@ -16,6 +17,7 @@ Page({
       this.data.defalutSecond = this.data.defalutSecond - 1
       this.showTime()
       if(this.data.defalutSecond === 0){
+        this.setData({ againBottonVisible: true })
         return this.destroyTimer()
       }
     }, 1000);
