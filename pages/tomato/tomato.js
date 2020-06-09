@@ -4,7 +4,8 @@ Page({
   data: {
     defalutSecond: 1500,
     time:"",
-    stop:true
+    stop:true,
+    confirmVisible: false
   },
   onShow: function () {
     this.showTime()
@@ -41,8 +42,16 @@ Page({
   setStart(){
     this.setTime()
     this.setData({ stop: true})
+  },
+  confirmAbandon(event){
+    let content = event.detail
+  },
+  showConfirm(){
+    this.setData({ confirmVisible: true })
+  },
+  hiddenConfirm(){
+    this.setData({ confirmVisible: false})
   }
-  
   
 
 })

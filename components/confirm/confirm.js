@@ -2,7 +2,7 @@ Component({
   properties:{
     visible:{
       type:Boolean,
-      value:true
+      value:false
     },
     placeholder:{
       type:String,
