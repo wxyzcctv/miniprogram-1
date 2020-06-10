@@ -6,19 +6,23 @@ Page({
     time:"",
     stop:true,
     confirmVisible: false,
-    againBottonVisible: false
+    againBottonVisible: false,
+    confirmFinishedVisible: false
   },
   onShow: function () {
     this.showTime()
     this.setTime()
   },
   setTime(){
+    this.showTime()
     this.timer = setInterval(() => {
       this.data.defalutSecond = this.data.defalutSecond - 1
       this.showTime()
-      if(this.data.defalutSecond === 0){
+      if(this.data.defalutSecond <= 0){
         this.setData({ againBottonVisible: true })
+        this.setData({ confirmFinishedVisible: true })
         return this.destroyTimer()
+        // 在销毁定时器之后需要将跳出函数，就是用return
       }
     }, 1000);
   },
@@ -50,9 +54,26 @@ Page({
   },
   showConfirm(){
     this.setData({ confirmVisible: true })
+    this.destroyTimer()
   },
   hiddenConfirm(){
     this.setData({ confirmVisible: false})
+    this.setTime()
+  },
+  againGroup(){
+    this.setData({ againBottonVisible: false})
+    this.data.defalutSecond = 10
+    this.setTime()
+  },
+  confirmFinshed(event){
+    let content = event.detail
+    wx.navigateBack({
+      top: -1
+    })
+    // 此处实现返回上一页
+  },
+  confirmCancel(){
+    this.setData({ confirmFinishedVisible: false})
   }
   
 

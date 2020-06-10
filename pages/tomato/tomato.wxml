@@ -1,13 +1,14 @@
 <view class="cantainer">
   <view class="clock"><t-clock text="{{time}}" fontSize="52"></t-clock></view>
 
-  <view class="stop" wx:if="{{!againBottonVisible}}">
-    <t-button size="mini" type="change" text="暂停" wx:if="{{stop}}" bindtap="setStop"></t-button>
-    <t-button size="mini" type="change" text="开始" wx:else bindtap="setStart"></t-button>
+  <view wx:if="{{!againBottonVisible}}">
+    <view class="stop">
+      <t-button size="mini" type="change" text="暂停" wx:if="{{stop}}" bindtap="setStop"></t-button>
+      <t-button size="mini" type="change" text="开始" wx:else bindtap="setStart"></t-button>
+    </view>
+    <view class="abandon"><t-button size="mini" text="放弃" bindtap="showConfirm"></t-button></view>
   </view>
-  
-  <view class="abandon" wx:if="{{!againBottonVisible}}"><t-button size="mini" text="放弃" bindtap="showConfirm"></t-button></view>
-  <view class="again" wx:if="{{againBottonVisible}}"><t-button size="mini" type="change" text="再来一组"></t-button></view>
-
+  <view class="again" wx:else><t-button size="mini" type="change" text="再来一组" bindtap="againGroup"></t-button></view>
   <t-confirm visible="{{confirmVisible}}" bindconfirm="confirmAbandon" bindcancel="hiddenConfirm" placeholder="放弃理由"></t-confirm>
+  <t-confirm visible="{{confirmFinishedVisible}}" bindconfirm="confirmFinshed" bindcancel="confirmCancel" placeholder="完成了什么"></t-confirm>
 </view>

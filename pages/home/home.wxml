@@ -10,7 +10,7 @@
   
   <view class="tomato-wrapper">
     <navigator class="tomato" url="/pages/tomato/tomato">
-      <m-clock text="点击计时"></m-clock>
+      <m-clock text="点击开始"></m-clock>
     </navigator>
   </view>
   <m-confirm visible="{{visible}}" placeholder="我已经完成了" bindconfirm="confirm" bindcancel="hiddenConfirm"></m-confirm>
