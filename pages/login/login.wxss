@@ -1,1 +1,61 @@
-/* pages/login/login.wxss */
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #EEF7F6;
+  height: 100vh;
+}
+
+.login .avatar {
+  width: 250rpx;
+  height: 250rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid #F6705A 16rpx;
+  margin-top: 283rpx;
+  margin-bottom: 20rpx;
+}
+
+.login .name-wrap {
+  color: #F6705A;
+  font-size: 38rpx;
+  margin-bottom: 60rpx;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.login .name-wrap::after {
+  content: "";
+  position: absolute;
+  background: #F6705A;
+  width: 40%;
+  height: 4rpx;
+  left: 50%;
+  bottom: -10rpx;
+  transform: translateX(-50%);
+}
+
+button::after {
+  border: none;
+}
+.button-hover{
+  opacity: 0.6;
+}
+.loginButton{
+  width: 360rpx;
+  height: 80rpx;
+  border-radius: 16rpx;
+  color: #fff;
+  font-size: 26rpx;
+  background: linear-gradient(to right,#EF9B75, #F6705A);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login .binding{
+  color: #F6705A;
+  font-size: 26rpx;
+  margin-top: 46rpx;
+}
