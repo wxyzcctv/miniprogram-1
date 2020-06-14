@@ -1,4 +1,6 @@
-// pages/login/login.js
+const { http } = require('../../utils/http.js')
+const { app_id, app_secret } = getApp().globalData
+
 Page({
 
   /**
@@ -26,7 +28,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(http)
+    http.get('/todos')
   },
 
   /**
