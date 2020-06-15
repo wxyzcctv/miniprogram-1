@@ -3,10 +3,11 @@ const { host, t_app_id, t_app_secret} = getApp().globalData
 const _http = (method, url, data) => {
   return new Promise((resolve,reject)=>{
     wx.request({
-      method,
       data,
+      method,
       url: `${host}${url}`,
       header:{
+        'Authorization': `Bearer ${wx.getStorageSync('X-token')}`,
         't-app-id': t_app_id,
         't-app-secret': t_app_secret
       },
@@ -14,9 +15,13 @@ const _http = (method, url, data) => {
       success: (response)=>{
         let statusCode = response.statusCode
         if(statusCode >= 400){
+          if(statusCode === 401){
+            wx.redirectTo({ url: '/pages/login/login' })
+            // 这个路由的意思是关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面
+          }
           reject({ response, statusCode })
         }else{
-          resolve( statusCode )
+          resolve( response )
         }
       },
       fail:(errors)=>{
