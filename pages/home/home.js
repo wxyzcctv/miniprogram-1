@@ -1,23 +1,30 @@
+const { http } = require('../../utils/http.js')
+
 Page({
 
   data: {
     visible:false,
-    lists:[
-      { id:1, text:"你好，我今天的计划1", finished:true },
-      { id:2, text:"你好，我今天的计划2", finished:true },
-      { id:3, text:"你好，我今天的计划3", finished:false },
-      { id:4, text:"你好，我今天的计划4", finished:false },
-      { id:5, text:"你好，我今天的计划5", finished:true },
-      { id:6, text:"你好，我今天的计划6", finished:false },
-    ]
+    lists:[]
+  },
+  onShow(){
+    http.get('/todos').then(response=>{
+      this.setData({ lists: response.data.resources })
+    })
   },
   confirm(event){
     let content = event.detail
     if(content){
-      let todo = [{ id: this.data.lists.length + 1, text: content, finished: false}]
-      let newLists = todo.concat(this.data.lists)
-      this.setData({ lists: newLists })
-      this.hiddenConfirm()
+      http.post('/todos', {
+        completed: false,
+        description: content
+      })
+      .then(response=>{
+        console.log(response)
+        let todo = [response.data.resource]
+        let newLists = todo.concat(this.data.lists)
+        this.setData({ lists: newLists })
+        this.hiddenConfirm()
+      })
     }
     // 按下确认键，增加内容
   },

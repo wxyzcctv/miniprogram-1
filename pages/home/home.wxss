@@ -8,14 +8,14 @@
 
   .tomato-wrapper {
     flex: 1;
-    margin-top: 66rpx;
-    padding: 0 28rpx;
+    margin-top: 40rpx;
+    padding: 0 5rpx;
   }
   .tomato-wrapper .tomato {
     background:#EEF7F6;
     border-radius: 8rpx;
     box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.10);
-    height: 473rpx;
+    height: 450rpx;
     display: flex;
     flex-direction: column;
     justify-content: center;
