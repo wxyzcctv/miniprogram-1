@@ -12,6 +12,11 @@ Page({
     let iv = event.detail.iv
     this.wxLogin(encrypted_data, iv)
   },
+  onShow(){
+    http.get('/todos').then(response=>{
+      console.log(response)
+    })
+  },
   wxLogin(encrypted_data, iv){
     wx.login({
       success: res =>  this.loginMe( res.code, iv, encrypted_data)

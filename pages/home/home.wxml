@@ -1,18 +1,30 @@
 <view class="home-container">
   <scroll-view class="todoList" scroll-y="true">
-    <view class="item" wx:for="{{lists}}" wx:key="id" data-index="{{index}}" bindtap="destroyItem">
-      <view class="select {{ item.completed && 'active'}}"></view>
-      <text>{{item.description}}</text>
+    <view class="item" 
+          wx:for="{{lists}}"
+          wx:key="id" 
+          data-index="{{index}}" 
+          data-id="{{item.id}}"
+          wx:if="{{!item.completed}}">
+      <view class="select {{ item.completed && 'active'}}"
+            bindtap="destroyTodo"
+            data-index="{{index}}"
+            data-id="{{item.id}}"></view>
+      <text bindtap="changeText"
+            data-index="{{index}}"
+            data-id="{{item.id}}"
+            data-content="{{item.description}}">{{item.description}}</text>
     </view>
   </scroll-view>
   
-  <m-button text="创建一个任务" size="mini" type="change" bindtap="showConfirm"></m-button>
+  <m-button text="创建一个任务" size="mini" type="change" bindtap="showCreateConfirm"></m-button>
   
   <view class="tomato-wrapper">
     <navigator class="tomato" url="/pages/tomato/tomato">
       <m-clock text="点击开始"></m-clock>
     </navigator>
   </view>
-  <m-confirm visible="{{visible}}" placeholder="我已经完成了" bindconfirm="confirm" bindcancel="hiddenConfirm"></m-confirm>
+  <m-confirm visible="{{visibleCreateConfirm}}" placeholder="我已经完成了" bindconfirm="confirmCreate" bindcancel="hiddenCreateConfirm"></m-confirm>
   <!-- 调用的组件内部函数的时候使用的是bind+函数名的方式，然后再js中进行自定义 -->
+  <m-confirm visible="{{visibleUpdateConfirm}}" value="{{updateContent}}" bindconfirm="confirmUpdate" bindcancel="hiddenUpdateConfirm"></m-confirm>
 </view>
