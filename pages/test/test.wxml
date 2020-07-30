@@ -1,2 +1,28 @@
-<!--pages/test/test.wxml-->
-<text>pages/test/test.wxml</text>
+<view class="div1" id="div-{{content}}">{{message}}</view>
+
+<view wx:if="{{ifshow}}">我是通过判断ifshow为true显示的</view>
+<view wx:else="{{ifshow}}">我是通过判断ifshow为false显示的</view>
+<view hidden="{{ifshow}}">我是隐藏的</view>
+
+<view wx:for="{{arr}}" wx:for-index="xx" wx:for-item="item" wx:key="xx">
+  {{xx}}我是ID：{{item.id}}，我是text：{{item.text}}
+</view>
+
+生命周期
+改变data里面的变量
+改变data里面的obj和arr 需要注意的事儿
+增加一个class
+---------------------
+<view>{{str}}</view>
+<button bindtap="reverseStr">我是一个按钮</button>
+---------------------
+<view wx:for="{{arr1}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+  {{index}}:{{item}}
+</view>
+<button bindtap="inputItem">我是一个按钮</button>
+---------------------
+<view>{{obj.id}}:{{obj.text}}</view>
+<button bindtap="changeObj">我是一个按钮</button>
+---------------------
+<view class="{{xx ? 'active' : ''}}">我会改变颜色</view>
+<button bindtap="changeColor">我是一个按钮</button>

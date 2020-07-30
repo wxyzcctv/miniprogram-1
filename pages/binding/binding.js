@@ -3,7 +3,7 @@
 Page({
   data: {
     account: "",
-    password_digest: "",
+    password: "",
     isBinding: true
   },
   watchAccount(event){

@@ -1,1 +1,3 @@
-/* pages/test/test.wxss */
+/* pages/text/text.wxss */
+.div1{ color: red;}
+.active{ color: green}

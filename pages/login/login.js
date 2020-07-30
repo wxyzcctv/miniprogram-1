@@ -39,6 +39,6 @@ Page({
   saveMessage(response){
     wx.setStorageSync('me',response.data.resource)
     wx.setStorageSync('X-token', response.header["X-token"])
-    // 将用户和本机的X-token信息保存到缓存中，这样方便下次进入的时候不进行再次再次登录
+    // 将用户和本机的X-token信息保存到缓存中，这样方便下次进入的时候不进行再次登录
   }
 })

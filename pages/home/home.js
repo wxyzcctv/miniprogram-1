@@ -31,7 +31,6 @@ Page({
     // 按下确认键，增加内容
   },
   destroyTodo(event){
-    console.log(event)
     let index = event.currentTarget.dataset.index
     let id = event.currentTarget.dataset.id
     http.put(`/todos/${id}`,{
