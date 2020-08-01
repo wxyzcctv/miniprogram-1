@@ -1,37 +1,34 @@
 // pages/me/me.js
+const { http } = require('../../utils/http.js');
+
 Page({
 
   data: {
     tab:"tomato",
-    lists:{
-      "周三":[
-        {time:"14:00",text:"英雄都是战胜自己畏惧心理的人，这并不是一件容易的事儿",id:1},
-        {time:"14:00",text:"英雄都是战胜自己畏惧心理的人",id:2},
-        {time:"14:00",text:"英雄都是战胜自己畏惧心理的人",id:3},
-        {time:"14:00",text:"英雄都是战胜自己畏惧心理的人",id:4}
-      ],
-      "周四":[{time:"14:00",text:"英雄都是战胜自己畏惧心理的人",id:1}],
-      "周五":[{time:"14:00",text:"英雄都是战胜自己畏惧心理的人",id:1}],
-      "周六":[{time:"14:00",text:"英雄都是战胜自己畏惧心理的人",id:1}],
-      "周天":[{time:"14:00",text:"英雄都是战胜自己畏惧心理的人",id:1}]
-    }
-  },
-
-  onLoad: function (options) {
-
+    tomatoes: {},
+    todos: {}
   },
   changeTab(event){
     let name = event.currentTarget.dataset.name
     this.setData({ tab: name})
   },
-  onReady: function () {
-
-  },
 
   onShow: function () {
-
+    this.fetchTomatoes()
+    this.fetchTodos()
   },
-
+  fetchTomatoes(){
+    http.get('/tomatoes',{ is_group: "yes" })
+    .then(response =>{
+      this.setData({ tomatoes: response.data.resources})
+    })
+  },
+  fetchTodos(){
+    http.get('/todos',{ is_group: "yes"})
+    .then( response => {
+      this.setData({ todos: response.data.resources})
+    })
+  },
   onHide: function () {
 
   },

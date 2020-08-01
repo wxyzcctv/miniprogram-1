@@ -1,1 +1,5 @@
 <navigator url="/pages/test/test?id=1">go to text</navigator>
+
+<wxs src='./../comm.wxs' module="some_comm"></wxs>
+<view>{{some_comm.bar(some_comm.FOO)}}</view>
+<view>{{some_comm.bar(msg)}}</view>
