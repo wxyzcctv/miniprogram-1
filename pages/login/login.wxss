@@ -54,8 +54,3 @@ button::after {
   justify-content: center;
   align-items: center;
 }
-.login .binding{
-  color: #F6705A;
-  font-size: 26rpx;
-  margin-top: 46rpx;
-}

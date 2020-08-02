@@ -14,6 +14,7 @@ Page({
   onShow: function () {
     this.setTime()
     http.post('/tomatoes').then(response=>{
+      console.log(response.data.resource)
       this.setData({ tomatoe: response.data.resource })
     })
   },
@@ -80,6 +81,7 @@ Page({
   },
   confirmFinshed(event){
     let content = event.detail
+    console.log(content)
   },
   confirmCancel(){
     this.setData({ confirmFinishedVisible: false})
