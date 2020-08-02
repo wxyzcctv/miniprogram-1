@@ -16,5 +16,5 @@
   <t-confirm visible="{{confirmFinishedVisible}}" 
              bindconfirm="confirmFinshed" 
              bindcancel="confirmCancel" 
-             placeholder="完成了什么"></t-confirm>
+             placeholder="确认前请填写完成的内容"></t-confirm>
 </view>

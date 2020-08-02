@@ -12,7 +12,6 @@ Page({
     this.setData({ password: event.detail.value})
   },
   submit(){
-    console.log(123)
     http.post('/bindings',{
       account: this.data.account,
       password_digest: this.data.password
