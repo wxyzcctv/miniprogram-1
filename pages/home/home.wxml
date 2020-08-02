@@ -19,7 +19,7 @@
   
   <view class="tomato-wrapper">
     <navigator class="tomato" url="/pages/tomato/tomato">
-      <m-clock text="点击开始"></m-clock>
+      <m-clock text="点击开始" fontSize="34"></m-clock>
     </navigator>
   </view>
   <m-confirm visible="{{visibleCreateConfirm}}" 

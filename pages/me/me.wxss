@@ -61,19 +61,31 @@
 .tabs > view.active::after{
   content:"";
   position: absolute;
-  width: 80%;
+  width: 100%;
   height: 8rpx;
   border-radius: 4rpx;
   background: #FE996F;
-  left: 50%;
+  left: 0;
   bottom: -16rpx;
-  transform: translate(-50%, -50%);
+  animation: tabLine 0.3s;
 }
+@keyframes tabLine {
+  0% { width: 0; }
+  100% { width: 100%; } 
+}
+
 .cantainer .lists{
   flex: 1;
   padding: 0 24rpx;
   box-sizing: border-box;
   overflow: scroll;
+  height: 100vh;
+  opacity: 1;
+  animation: scrollView 0.3s;
+}
+@keyframes scrollView{
+  0% { opacity: 0; }
+  100% { opacity: 1;}
 }
 .cantainer .lists .item{
   background: #fff;

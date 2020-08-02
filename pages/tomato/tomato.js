@@ -3,7 +3,7 @@ const { http } = require('../../utils/http.js');
 Page({
   timer: null,
   data: {
-    defalutSecond: 5,
+    defalutSecond: 1500,
     time: "",
     timerStatus: 'stop',
     confirmVisible: false,
@@ -99,7 +99,7 @@ Page({
     this.setData({
       againBottonVisible: false
     })
-    this.data.defalutSecond = 5
+    this.data.defalutSecond = 1500
     this.setTime()
   },
   // 完成确定
