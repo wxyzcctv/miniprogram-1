@@ -9,7 +9,8 @@ Page({
     confirmVisible: false,
     againBottonVisible: false,
     confirmFinishedVisible: false,
-    tomatoe: {}
+    tomatoe: {},
+    visibleTip: false
   },
   onShow: function () {
     this.setTime()
@@ -68,16 +69,23 @@ Page({
   },
   confirmAbandon(event) {
     let content = event.detail
-    http.put(`/tomatoes/${this.data.tomatoe.id}`, {
-      description: content,
-      aborted: true
-    })
-      .then(reponse => {
-        wx.navigateBack({
-          top: -1,
+    if(content){
+      if(wx.getStorageSync('me')){
+        http.put(`/tomatoes/${this.data.tomatoe.id}`, {
+          description: content,
+          aborted: true
         })
-      })
-    // 此处实现返回上一页
+          .then(reponse => {
+            wx.navigateBack({
+              top: -1,
+            })
+          })
+        // 此处实现返回上一页
+      }else{
+        this.setData({ visibleTip: true })
+      }
+    }
+
   },
   showConfirm() {
     this.setData({
@@ -106,13 +114,17 @@ Page({
   confirmFinshed(event) {
     let content = event.detail
     if (content) {
-      http.put(`/tomatoes/${this.data.tomatoe.id}`, {
-        description: content,
-        aborted: false
-      })
-        .then(response => {
-          this.confirmCancel()
+      if(wx.getStorageSync('me')){
+        http.put(`/tomatoes/${this.data.tomatoe.id}`, {
+          description: content,
+          aborted: false
         })
+          .then(response => {
+            this.confirmCancel()
+          })
+      }else{
+        this.setData({ visibleTip: true })
+      }
     }
     // 只有当完成之后的，在会话框中填入了“完成了什么”的内容之后才能成功点击确定
   },
@@ -141,5 +153,8 @@ Page({
         aborted: true
       })
     }
+  },
+  confirmTip(){
+    this.setData({ visibleTip: false})
   }
 })

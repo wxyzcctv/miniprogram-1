@@ -4,6 +4,7 @@ const { http } = require('../../utils/http.js');
 Page({
 
   data: {
+    userUnLogin:true,
     tab:"tomato",
     tomatoes: {},
     todos: {},
@@ -15,9 +16,13 @@ Page({
   },
 
   onShow: function () {
-    this.fetchTomatoes()
-    this.fetchTodos()
-    this.setData({ me: wx.getStorageSync('me')})
+    if( wx.getStorageSync('me') ){
+      this.fetchTomatoes()
+      this.fetchTodos()
+      this.setData({ me: wx.getStorageSync('me'), userUnLogin: false })
+    }else{
+      this.setData({ userUnLogin: true })
+    }
   },
   fetchTomatoes(){
     http.get('/tomatoes',{ is_group: "yes" })

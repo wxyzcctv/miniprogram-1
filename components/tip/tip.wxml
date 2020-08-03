@@ -1,0 +1,8 @@
+<view class="cantainer" wx:if="{{visible}}">
+  <view class="confirm">
+    <view class="tip">请登录</view>
+    <view class="actions">
+      <view hover-class="active" class="sure" bindtap="confirm">确定</view>
+    </view>
+  </view>
+</view>

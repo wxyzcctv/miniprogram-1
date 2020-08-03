@@ -54,3 +54,16 @@ button::after {
   justify-content: center;
   align-items: center;
 }
+.refuseLogin{
+  width: 360rpx;
+  height: 80rpx;
+  border-radius: 16rpx;
+  color: #F6705A;
+  border: 2rpx solid #F6705A;
+  font-size: 26rpx;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 28rpx;
+}

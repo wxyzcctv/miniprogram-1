@@ -12,9 +12,10 @@
   <t-confirm visible="{{confirmVisible}}" 
              bindconfirm="confirmAbandon" 
              bindcancel="hiddenConfirm" 
-             placeholder="放弃理由"></t-confirm>
+             placeholder="请填写放弃理由"></t-confirm>
   <t-confirm visible="{{confirmFinishedVisible}}" 
              bindconfirm="confirmFinshed" 
              bindcancel="confirmCancel" 
              placeholder="确认前请填写完成的内容"></t-confirm>
+<t-tip visible="{{visibleTip}}" bindconfirm="confirmTip"></t-tip>             
 </view>

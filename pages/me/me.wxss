@@ -15,18 +15,23 @@
   padding: 0 45rpx;
   margin-bottom: 20rpx;
 }
-.header .avatar{
+.header .avatar,
+.header .avatar .unLoginAvatar{
   width: 88rpx;
   height: 88rpx;
   border-radius: 50%;
   margin-right: 20rpx;
   overflow: hidden;
 }
-.header .details{
+.header .details,
+.header .userUnLogin{
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
+}
+.header .userUnLogin navigator{
+  font-size: 28rpx;
 }
 .header .details .name{
   color: black;
@@ -39,7 +44,7 @@
 .qr{
   background: transparent;
   color: #FE996F;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 .tabs{
   background: #fff;

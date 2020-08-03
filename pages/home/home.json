@@ -2,6 +2,7 @@
   "usingComponents": {
     "m-button":"../../components/button/button",
     "m-clock":"../../components/clock/clock",
-    "m-confirm":"../../components/confirm/confirm"
+    "m-confirm":"../../components/confirm/confirm",
+    "m-tip":"../../components/tip/tip"
   }
 }

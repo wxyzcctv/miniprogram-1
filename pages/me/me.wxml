@@ -1,9 +1,13 @@
 <view class="cantainer">
   <view class="header">
     <view class="avatar">
-      <open-data type="userAvatarUrl"></open-data>
+      <image src="/images/me-active.png" class="unLoginAvatar" wx:if="{{userUnLogin}}"></image>
+      <open-data type="userAvatarUrl" wx:if="{{!userUnLogin}}"></open-data>
     </view>
-    <view class="details">
+    <view class="userUnLogin" wx:if="{{userUnLogin}}">
+      <navigator url="/pages/login/login">请登录</navigator>
+    </view>
+    <view class="details" wx:if="{{!userUnLogin}}">
       <open-data type="userNickName" class="name"></open-data>
       <navigator url="/pages/binding/binding" wx:if="{{!me.account}}">绑定PC账号</navigator>
     </view>

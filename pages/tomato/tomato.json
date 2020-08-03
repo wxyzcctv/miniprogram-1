@@ -2,6 +2,7 @@
   "usingComponents": {
     "t-clock":"../../components/clock/clock",
     "t-button":"../../components/button/button",
-    "t-confirm":"../../components/confirm/confirm"
+    "t-confirm":"../../components/confirm/confirm",
+    "t-tip":"../../components/tip/tip"
   }
 }
